@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  broadlink:
+    container_name: broadlink
+    image: timothystewart6/techno-broadlink
+    environment:
+      - HOST_IP=your.docker.host.ip
+    volumes:
+      - /data/broadlink/config:/app/connfig
+    ports:
+      - 10981:10981
+    restart: unless-stopped
+    network_mode: host
